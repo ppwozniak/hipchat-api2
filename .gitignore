@@ -1,2 +1,17 @@
+# after compile files
+target
+
+
+# IDEs files
+## IntelliJ IDEA
 *.iml
 .idea
+
+## NetBeans
+nb*.xml
+
+## Eclipse
+.metadata
+.project
+.settings
+.servers

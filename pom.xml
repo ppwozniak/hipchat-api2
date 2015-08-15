@@ -8,6 +8,159 @@
     <groupId>pl.ppwozniak</groupId>
     <artifactId>hipchat-api2</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <description>HipChat API version 2 Client Library for Java</description>
+    <inceptionYear>2015</inceptionYear>
 
 
+    <properties>
+        <!-- main properties -->
+        <version.jdk>1.7</version.jdk>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- plugins versions -->
+        <version.org.apache.maven.plugins.maven-clean-plugin>2.6.1</version.org.apache.maven.plugins.maven-clean-plugin>
+        <version.org.apache.maven.plugins.maven-compiler-plugin>
+            3.3
+        </version.org.apache.maven.plugins.maven-compiler-plugin>
+        <version.org.apache.maven.plugins.maven-jar-plugin>2.6</version.org.apache.maven.plugins.maven-jar-plugin>
+        <version.org.apache.maven.plugins.maven-javadoc-plugin>
+            2.10.3
+        </version.org.apache.maven.plugins.maven-javadoc-plugin>
+        <version.org.apache.maven.plugins.maven-project-info-reports-plugin>
+            2.8
+        </version.org.apache.maven.plugins.maven-project-info-reports-plugin>
+        <version.org.apache.maven.plugins.maven-site-plugin>3.4</version.org.apache.maven.plugins.maven-site-plugin>
+        <version.org.apache.maven.plugins.maven-source-plugin>2.4</version.org.apache.maven.plugins.maven-source-plugin>
+
+        <!-- dependencies versions -->
+    </properties>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${version.jdk}</source>
+                    <target>${version.jdk}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-jar-plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-clean-plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-site-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>default-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-javadoc-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>default-javadoc</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-source-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>default-source</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+    </dependencies>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-javadoc-plugin}</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${version.org.apache.maven.plugins.maven-project-info-reports-plugin}</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                            <report>help</report>
+                            <report>dependencies</report>
+                            <report>issue-tracking</report>
+                            <report>license</report>
+                            <report>plugins</report>
+                            <report>project-team</report>
+                            <report>scm</report>
+                            <report>summary</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <developers>
+        <developer>
+            <id>ppwozniak</id>
+            <name>Paweł Woźniak</name>
+            <email>ppwozniak@ppwozniak.pl</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://bitbucket.org/ppwozniak/hipchat-api2</connection>
+        <developerConnection>scm:git:git@bitbucket.org/ppwozniak/hipchat-api2</developerConnection>
+        <url>https://bitbucket.org/ppwozniak/hipchat-api2</url>
+    </scm>
+
+    <issueManagement>
+        <system>Bitbucket Issue Tracker</system>
+        <url>https://bitbucket.org/ppwozniak/hipchat-api2/issues</url>
+    </issueManagement>
 </project>
