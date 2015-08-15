@@ -1,6 +1,9 @@
 # after compile files
 target
 
+# another files
+authToken.properties
+
 
 # IDEs files
 ## IntelliJ IDEA
