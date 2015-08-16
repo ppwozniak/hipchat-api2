@@ -12,7 +12,7 @@ package pl.ppwozniak.hipchat.api2.models.users;
 /**
  * @author wp
  */
-public class UserItem {
+public class User {
 
     private String mention_name;
 
@@ -22,10 +22,10 @@ public class UserItem {
 
     private String name;
 
-    public UserItem() {
+    public User() {
     }
 
-    public UserItem(String mention_name, int id, UserLink links, String name) {
+    public User(String mention_name, int id, UserLink links, String name) {
         this.mention_name = mention_name;
         this.id = id;
         this.links = links;

@@ -17,7 +17,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 public class GetAllUsersModel {
 
     @JsonProperty("items")
-    private UserItem[] userItems;
+    private User[] users;
 
     private int startIndex;
 
@@ -29,19 +29,19 @@ public class GetAllUsersModel {
     public GetAllUsersModel() {
     }
 
-    public GetAllUsersModel(UserItem[] userItems, int startIndex, int maxResults, UserLinks userLinks) {
-        this.userItems = userItems;
+    public GetAllUsersModel(User[] users, int startIndex, int maxResults, UserLinks userLinks) {
+        this.users = users;
         this.startIndex = startIndex;
         this.maxResults = maxResults;
         this.userLinks = userLinks;
     }
 
-    public UserItem[] getUserItems() {
-        return userItems;
+    public User[] getUsers() {
+        return users;
     }
 
-    public void setUserItems(UserItem[] userItems) {
-        this.userItems = userItems;
+    public void setUsers(User[] users) {
+        this.users = users;
     }
 
     public int getStartIndex() {

@@ -7,17 +7,17 @@
  * Data utworzenia: 2015-08-15
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2;
+package pl.ppwozniak.hipchat.api2.tests;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.codehaus.jackson.map.ObjectMapper;
-import pl.ppwozniak.hipchat.api2.misc.ApiUrl;
-import pl.ppwozniak.hipchat.api2.misc.TokenLoader;
+import pl.ppwozniak.hipchat.api2.common.ApiData;
+import pl.ppwozniak.hipchat.api2.common.TokenLoader;
 import pl.ppwozniak.hipchat.api2.models.users.GetAllUsersModel;
-import pl.ppwozniak.hipchat.api2.models.users.UserItem;
+import pl.ppwozniak.hipchat.api2.models.users.User;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +29,7 @@ import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        String url = ApiUrl.URL + "user?auth_token=" + TokenLoader.loadToken();
+        String url = ApiData.URL + "user?auth_token=" + TokenLoader.loadToken();
 
         HttpClient client = HttpClientBuilder.create().build();
 
@@ -57,7 +57,7 @@ public class Test {
         ObjectMapper mapper = new ObjectMapper();
         GetAllUsersModel response1 = mapper.readValue(content, GetAllUsersModel.class);
 
-        for (UserItem i : response1.getUserItems()) {
+        for (User i : response1.getUsers()) {
             System.out.println(i.getMention_name() + " " + i.getName() + " " + i.getLinks());
         }
     }

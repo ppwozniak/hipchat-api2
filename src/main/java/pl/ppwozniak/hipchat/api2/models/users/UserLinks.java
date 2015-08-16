@@ -50,5 +50,14 @@ public class UserLinks {
     public void setNext(String next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return "UserLinks{" +
+                "self='" + self + '\'' +
+                ", prev='" + prev + '\'' +
+                ", next='" + next + '\'' +
+                '}';
+    }
 }
 

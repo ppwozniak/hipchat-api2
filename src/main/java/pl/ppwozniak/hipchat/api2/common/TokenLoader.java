@@ -7,7 +7,7 @@
  * Data utworzenia: 2015-08-15
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.misc;
+package pl.ppwozniak.hipchat.api2.common;
 
 import java.io.FileReader;
 import java.io.IOException;
