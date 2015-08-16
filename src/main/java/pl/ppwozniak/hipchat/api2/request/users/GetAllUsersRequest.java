@@ -21,8 +21,6 @@ public class GetAllUsersRequest implements ApiRequest {
 
     private static final String URL = "user";
 
-    private int type;
-
     private int startIndex;
 
     private int maxResult;
@@ -31,8 +29,7 @@ public class GetAllUsersRequest implements ApiRequest {
 
     private boolean includeDeleted;
 
-    private GetAllUsersRequest(int type, int startIndex, int maxResult, boolean includeGuests, boolean includeDeleted) {
-        this.type = type;
+    private GetAllUsersRequest(int startIndex, int maxResult, boolean includeGuests, boolean includeDeleted) {
         this.startIndex = startIndex;
         this.maxResult = maxResult;
         this.includeGuests = includeGuests;
@@ -40,18 +37,16 @@ public class GetAllUsersRequest implements ApiRequest {
     }
 
     public GetAllUsersRequest() {
-        this(0, 0, 0, false, false);
+        this(0, 100, false, false);
     }
 
     @Override
     public HttpRequest getRequest(String token) {
-        HttpRequest request;
-        if (type == 0) {
-            request = Unirest.get(ApiData.URL + URL).queryString(ApiData.TOKEN_PARAM_NAME, token);
-        } else {
-            request = null;
-        }
-
-        return request;
+        return Unirest.get(ApiData.URL + URL)
+                .queryString(ApiData.TOKEN_PARAM_NAME, token)
+                .queryString("start-index", startIndex)
+                .queryString("max-results", maxResult)
+                .queryString("include-guests", includeGuests)
+                .queryString("include-deleted", includeDeleted);
     }
 }
