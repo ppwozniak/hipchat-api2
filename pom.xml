@@ -34,6 +34,8 @@
         <version.org.apache.maven.plugins.maven-source-plugin>2.4</version.org.apache.maven.plugins.maven-source-plugin>
 
         <!-- dependencies versions -->
+        <version.org.codehaus.jackson.jackson-mapper-asl>1.9.13</version.org.codehaus.jackson.jackson-mapper-asl>
+        <version.com.mashape.unirest.unirest-java>1.4.7</version.com.mashape.unirest.unirest-java>
     </properties>
 
 
@@ -106,20 +108,15 @@
     </build>
 
     <dependencies>
-        <!--<dependency>-->
-        <!--<groupId>org.apache.httpcomponents</groupId>-->
-        <!--<artifactId>httpclient</artifactId>-->
-        <!--<version>4.5</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
+            <version>${version.org.codehaus.jackson.jackson-mapper-asl}</version>
         </dependency>
         <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
-            <version>1.4.6</version>
+            <version>${version.com.mashape.unirest.unirest-java}</version>
         </dependency>
     </dependencies>
 
@@ -169,13 +166,13 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://bitbucket.org/ppwozniak/hipchat-api2</connection>
+        <connection>scm:git:https://github.com/ppwozniak/hipchat-api2.git</connection>
         <developerConnection>scm:git:git@bitbucket.org/ppwozniak/hipchat-api2</developerConnection>
-        <url>https://bitbucket.org/ppwozniak/hipchat-api2</url>
+        <url>https://github.com/ppwozniak/hipchat-api2</url>
     </scm>
 
     <issueManagement>
-        <system>Bitbucket Issue Tracker</system>
-        <url>https://bitbucket.org/ppwozniak/hipchat-api2/issues</url>
+        <system>GitHub Issue</system>
+        <url>https://github.com/ppwozniak/hipchat-api2/issues</url>
     </issueManagement>
 </project>
