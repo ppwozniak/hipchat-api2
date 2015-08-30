@@ -167,7 +167,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/ppwozniak/hipchat-api2.git</connection>
-        <developerConnection>scm:git:git@bitbucket.org/ppwozniak/hipchat-api2</developerConnection>
+        <developerConnection>scm:git:git@github.com:ppwozniak/hipchat-api2.git</developerConnection>
         <url>https://github.com/ppwozniak/hipchat-api2</url>
     </scm>
 
