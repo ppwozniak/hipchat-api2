@@ -10,11 +10,13 @@
 package pl.ppwozniak.hipchat.api2.models.users;
 
 import org.codehaus.jackson.annotate.JsonProperty;
+import pl.ppwozniak.hipchat.api2.models.users.sub.Group;
+import pl.ppwozniak.hipchat.api2.models.users.sub.Presence;
 
 /**
  * @author wp
  */
-public class ViewUserModel {
+public class ViewUserModel extends AbstractUserModel {
 
     @JsonProperty("xmpp_jid")
     private String jabberId;
@@ -55,9 +57,6 @@ public class ViewUserModel {
 
     private Group group;
 
-    @JsonProperty("links")
-    private UserLinks links;
-
     public ViewUserModel() {
     }
 
@@ -65,135 +64,64 @@ public class ViewUserModel {
         return jabberId;
     }
 
-    public void setJabberId(String jabberId) {
-        this.jabberId = jabberId;
-    }
-
     public boolean isDeleted() {
         return deleted;
-    }
-
-    public void setDeleted(boolean deleted) {
-        this.deleted = deleted;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getLastActive() {
         return lastActive;
-    }
-
-    public void setLastActive(String lastActive) {
-        this.lastActive = lastActive;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public Presence getPresence() {
         return presence;
-    }
-
-    public void setPresence(Presence presence) {
-        this.presence = presence;
     }
 
     public String getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getMentionName() {
         return mentionName;
     }
 
-    public void setMentionName(String mentionName) {
-        this.mentionName = mentionName;
-    }
-
     public String getVersion() {
         return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     public boolean isGroupAdmin() {
         return groupAdmin;
     }
 
-    public void setGroupAdmin(boolean groupAdmin) {
-        this.groupAdmin = groupAdmin;
-    }
-
     public String getTimezone() {
         return timezone;
-    }
-
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
     }
 
     public boolean isGuest() {
         return guest;
     }
 
-    public void setGuest(boolean guest) {
-        this.guest = guest;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhotoUrl() {
         return photoUrl;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
-
     public Group getGroup() {
         return group;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-
-    public UserLinks getLinks() {
-        return links;
-    }
-
-    public void setLinks(UserLinks links) {
-        this.links = links;
-    }
 }

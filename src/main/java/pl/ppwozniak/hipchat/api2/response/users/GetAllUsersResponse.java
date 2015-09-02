@@ -15,7 +15,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.HttpStatus;
 import org.codehaus.jackson.map.ObjectMapper;
 import pl.ppwozniak.hipchat.api2.common.ApiRequest;
-import pl.ppwozniak.hipchat.api2.models.users.GetAllUsersModel;
+import pl.ppwozniak.hipchat.api2.models.users.GetAllUserModel;
 import pl.ppwozniak.hipchat.api2.response.ApiResponse;
 
 import java.io.IOException;
@@ -25,20 +25,20 @@ import java.io.IOException;
  */
 public class GetAllUsersResponse implements ApiResponse {
 
-    private GetAllUsersModel model;
+    private GetAllUserModel model;
 
     private int status;
 
     private ApiRequest request;
 
-    private GetAllUsersResponse(ApiRequest request, int status, GetAllUsersModel model) {
+    private GetAllUsersResponse(ApiRequest request, int status, GetAllUserModel model) {
         this.request = request;
         this.status = status;
         this.model = model;
     }
 
     public GetAllUsersResponse(ApiRequest request) {
-        this(request, -1, new GetAllUsersModel());
+        this(request, -1, new GetAllUserModel());
     }
 
     @Override
@@ -48,7 +48,7 @@ public class GetAllUsersResponse implements ApiResponse {
         status = response.getStatus();
         if (status == HttpStatus.SC_OK) {
             ObjectMapper mapper = new ObjectMapper();
-            model = mapper.readValue(response.getRawBody(), GetAllUsersModel.class);
+            model = mapper.readValue(response.getRawBody(), GetAllUserModel.class);
         }
     }
 
@@ -56,7 +56,7 @@ public class GetAllUsersResponse implements ApiResponse {
         return status;
     }
 
-    public GetAllUsersModel getModel() {
+    public GetAllUserModel getModel() {
         return model;
     }
 

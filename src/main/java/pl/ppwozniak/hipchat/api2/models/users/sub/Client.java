@@ -7,7 +7,7 @@
  * Data utworzenia: 2015-09-02
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.models.users;
+package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 /**
  * @author wp

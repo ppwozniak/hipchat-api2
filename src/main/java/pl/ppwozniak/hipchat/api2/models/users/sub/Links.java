@@ -7,21 +7,21 @@
  * Data utworzenia: 2015-08-15
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.models.users;
+package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 /**
  * @author wp
  */
-public class UserLinks {
+public class Links {
 
     private String self;
     private String prev;
     private String next;
 
-    public UserLinks() {
+    public Links() {
     }
 
-    public UserLinks(String self, String prev, String next) {
+    public Links(String self, String prev, String next) {
         this.self = self;
         this.prev = prev;
         this.next = next;
@@ -53,7 +53,7 @@ public class UserLinks {
 
     @Override
     public String toString() {
-        return "UserLinks{" +
+        return "Links{" +
                 "self='" + self + '\'' +
                 ", prev='" + prev + '\'' +
                 ", next='" + next + '\'' +

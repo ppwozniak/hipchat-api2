@@ -7,7 +7,7 @@
  * Data utworzenia: 2015-09-02
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.models.users;
+package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -19,7 +19,7 @@ public class Group {
     private int id;
 
     @JsonProperty("links")
-    private UserLink link;
+    private Link link;
 
     private String name;
 
@@ -34,11 +34,11 @@ public class Group {
         this.id = id;
     }
 
-    public UserLink getLink() {
+    public Link getLink() {
         return link;
     }
 
-    public void setLink(UserLink link) {
+    public void setLink(Link link) {
         this.link = link;
     }
 
