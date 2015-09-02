@@ -16,11 +16,13 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class Group {
 
+    @JsonProperty("id")
     private int id;
 
     @JsonProperty("links")
     private Link link;
 
+    @JsonProperty("name")
     private String name;
 
     public Group() {
@@ -30,23 +32,20 @@ public class Group {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Link getLink() {
         return link;
-    }
-
-    public void setLink(Link link) {
-        this.link = link;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", link=" + link +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

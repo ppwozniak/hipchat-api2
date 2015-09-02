@@ -49,7 +49,7 @@ public class GetAllUserModel extends AbstractUserModel {
                 "users=" + Arrays.toString(users) +
                 ", startIndex=" + startIndex +
                 ", maxResults=" + maxResults +
-                ", links=" + getLinks().toString() +
+                ", links=" + getLinks() +
                 '}';
     }
 }

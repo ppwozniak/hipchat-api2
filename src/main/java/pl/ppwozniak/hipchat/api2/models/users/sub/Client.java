@@ -9,13 +9,17 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  * @author wp
  */
 public class Client {
 
+    @JsonProperty("version")
     private String version;
 
+    @JsonProperty("type")
     private String type;
 
     public Client() {
@@ -25,15 +29,15 @@ public class Client {
         return version;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    @Override
+    public String toString() {
+        return "Client{" +
+                "version='" + version + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

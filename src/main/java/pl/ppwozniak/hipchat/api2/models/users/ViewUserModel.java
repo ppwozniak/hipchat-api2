@@ -24,37 +24,46 @@ public class ViewUserModel extends AbstractUserModel {
     @JsonProperty("is_deleted")
     private boolean deleted;
 
+    @JsonProperty("name")
     private String name;
 
     @JsonProperty("last_active")
     private String lastActive;
 
+    @JsonProperty("title")
     private String title;
 
+    @JsonProperty("presence")
     private Presence presence;
 
-    private String created;
+    @JsonProperty("created")
+    private String dateOfCreation;
 
+    @JsonProperty("id")
     private int id;
 
     @JsonProperty("mention_name")
     private String mentionName;
 
+    @JsonProperty("version")
     private String version;
 
     @JsonProperty("is_group_admin")
     private boolean groupAdmin;
 
+    @JsonProperty("timezone")
     private String timezone;
 
     @JsonProperty("is_guest")
     private boolean guest;
 
+    @JsonProperty("email")
     private String email;
 
     @JsonProperty("photo_url")
     private String photoUrl;
 
+    @JsonProperty("group")
     private Group group;
 
     public ViewUserModel() {
@@ -84,8 +93,8 @@ public class ViewUserModel extends AbstractUserModel {
         return presence;
     }
 
-    public String getCreated() {
-        return created;
+    public String getDateOfCreation() {
+        return dateOfCreation;
     }
 
     public int getId() {
@@ -124,4 +133,25 @@ public class ViewUserModel extends AbstractUserModel {
         return group;
     }
 
+    @Override
+    public String toString() {
+        return "ViewUserModel{" +
+                "jabberId='" + jabberId + '\'' +
+                ", deleted=" + deleted +
+                ", name='" + name + '\'' +
+                ", lastActive='" + lastActive + '\'' +
+                ", title='" + title + '\'' +
+                ", presence=" + presence +
+                ", dateOfCreation='" + dateOfCreation + '\'' +
+                ", id=" + id +
+                ", mentionName='" + mentionName + '\'' +
+                ", version='" + version + '\'' +
+                ", groupAdmin=" + groupAdmin +
+                ", timezone='" + timezone + '\'' +
+                ", guest=" + guest +
+                ", email='" + email + '\'' +
+                ", photoUrl='" + photoUrl + '\'' +
+                ", group=" + group +
+                '}';
+    }
 }

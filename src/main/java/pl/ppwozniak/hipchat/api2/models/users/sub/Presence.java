@@ -16,12 +16,16 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class Presence {
 
+    @JsonProperty("status")
     private String status;
 
+    @JsonProperty("idle")
     private int idle;
 
+    @JsonProperty("show")
     private String show;
 
+    @JsonProperty("client")
     private Client client;
 
     @JsonProperty("is_online")
@@ -34,39 +38,30 @@ public class Presence {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public int getIdle() {
         return idle;
-    }
-
-    public void setIdle(int idle) {
-        this.idle = idle;
     }
 
     public String getShow() {
         return show;
     }
 
-    public void setShow(String show) {
-        this.show = show;
-    }
-
     public Client getClient() {
         return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public boolean isOnline() {
         return online;
     }
 
-    public void setOnline(boolean online) {
-        this.online = online;
+    @Override
+    public String toString() {
+        return "Presence{" +
+                "online=" + online +
+                ", client=" + client +
+                ", show='" + show + '\'' +
+                ", idle=" + idle +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
