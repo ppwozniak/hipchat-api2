@@ -7,14 +7,16 @@
  * Data utworzenia: 2015-08-16
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.common;
+package pl.ppwozniak.hipchat.api2.common.response;
 
-import com.mashape.unirest.request.HttpRequest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+import java.io.IOException;
 
 /**
  * @author wp
  */
-public interface ApiRequest {
+public interface ApiResponse {
 
-    HttpRequest getRequest(String token);
+    void run(String token) throws IOException, UnirestException;
 }

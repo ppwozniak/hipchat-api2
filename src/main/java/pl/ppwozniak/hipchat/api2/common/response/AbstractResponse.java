@@ -7,14 +7,14 @@
  * Data utworzenia: 2015-09-02
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.response;
+package pl.ppwozniak.hipchat.api2.common.response;
 
-import pl.ppwozniak.hipchat.api2.common.ApiRequest;
+import pl.ppwozniak.hipchat.api2.common.request.ApiRequest;
 
 /**
  * @author wp
  */
-public abstract class AbstractResponse {
+public abstract class AbstractResponse implements ApiResponse {
 
     private ApiRequest request;
 

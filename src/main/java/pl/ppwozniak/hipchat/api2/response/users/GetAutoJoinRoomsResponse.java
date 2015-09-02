@@ -14,17 +14,16 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.HttpStatus;
 import org.codehaus.jackson.map.ObjectMapper;
-import pl.ppwozniak.hipchat.api2.common.ApiRequest;
-import pl.ppwozniak.hipchat.api2.common.ApiResponse;
+import pl.ppwozniak.hipchat.api2.common.request.ApiRequest;
+import pl.ppwozniak.hipchat.api2.common.response.AbstractResponse;
 import pl.ppwozniak.hipchat.api2.models.users.GetAutoJoinRoomsModel;
-import pl.ppwozniak.hipchat.api2.response.AbstractResponse;
 
 import java.io.IOException;
 
 /**
  * @author wp
  */
-public class GetAutoJoinRoomsResponse extends AbstractResponse implements ApiResponse {
+public class GetAutoJoinRoomsResponse extends AbstractResponse {
 
     private GetAutoJoinRoomsModel model;
 

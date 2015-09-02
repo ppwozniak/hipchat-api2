@@ -12,7 +12,7 @@ package pl.ppwozniak.hipchat.api2.request.users;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
-import pl.ppwozniak.hipchat.api2.common.ApiRequest;
+import pl.ppwozniak.hipchat.api2.common.request.ApiRequest;
 
 /**
  * @author wp
