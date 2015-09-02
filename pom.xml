@@ -73,7 +73,7 @@
                 <executions>
                     <execution>
                         <id>default-site</id>
-                        <phase>package</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>site</goal>
                         </goals>
@@ -87,7 +87,7 @@
                 <executions>
                     <execution>
                         <id>default-javadoc</id>
-                        <phase>package</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -101,7 +101,7 @@
                 <executions>
                     <execution>
                         <id>default-source</id>
-                        <phase>package</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>

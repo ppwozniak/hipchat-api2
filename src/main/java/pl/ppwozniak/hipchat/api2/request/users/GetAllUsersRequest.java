@@ -29,7 +29,7 @@ public class GetAllUsersRequest implements ApiRequest {
 
     private boolean includeDeleted;
 
-    private GetAllUsersRequest(int startIndex, int maxResult, boolean includeGuests, boolean includeDeleted) {
+    public GetAllUsersRequest(int startIndex, int maxResult, boolean includeGuests, boolean includeDeleted) {
         this.startIndex = startIndex;
         this.maxResult = maxResult;
         this.includeGuests = includeGuests;

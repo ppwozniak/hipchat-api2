@@ -1,5 +1,6 @@
-# after compile files
+# project files
 target
+runners
 
 # another files
 authToken.properties
