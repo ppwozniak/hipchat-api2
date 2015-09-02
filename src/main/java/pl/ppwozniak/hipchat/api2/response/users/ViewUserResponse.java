@@ -17,23 +17,19 @@ import org.codehaus.jackson.map.ObjectMapper;
 import pl.ppwozniak.hipchat.api2.common.ApiRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiResponse;
 import pl.ppwozniak.hipchat.api2.models.users.ViewUserModel;
+import pl.ppwozniak.hipchat.api2.response.AbstractResponse;
 
 import java.io.IOException;
 
 /**
  * @author wp
  */
-public class ViewUserResponse implements ApiResponse {
-
-    private ApiRequest request;
-
-    private int status;
+public class ViewUserResponse extends AbstractResponse implements ApiResponse {
 
     private ViewUserModel model;
 
     private ViewUserResponse(ApiRequest request, int status, ViewUserModel model) {
-        this.request = request;
-        this.status = status;
+        super(request, status);
         this.model = model;
     }
 
@@ -43,21 +39,23 @@ public class ViewUserResponse implements ApiResponse {
 
     @Override
     public void run(String token) throws IOException, UnirestException {
-        status = 0;
-        HttpResponse<JsonNode> response = request.getRequest(token).asJson();
-        status = response.getStatus();
-        if (status == HttpStatus.SC_OK) {
+        setStatus(0);
+        HttpResponse<JsonNode> response = getRequest().getRequest(token).asJson();
+        setStatus(response.getStatus());
+        if (getStatus() == HttpStatus.SC_OK) {
             ObjectMapper mapper = new ObjectMapper();
             model = mapper.readValue(response.getRawBody(), ViewUserModel.class);
         }
     }
 
+    @Override
     public ApiRequest getRequest() {
-        return request;
+        return super.getRequest();
     }
 
+    @Override
     public int getStatus() {
-        return status;
+        return super.getStatus();
     }
 
     public ViewUserModel getModel() {
