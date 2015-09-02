@@ -27,13 +27,13 @@ public class ViewUserRequest implements ApiRequest {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public HttpRequest getRequest(String token) {
         return Unirest.get(ApiData.URL + URL + name)
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
+    }
+
+    public String getName() {
+        return name;
     }
 }

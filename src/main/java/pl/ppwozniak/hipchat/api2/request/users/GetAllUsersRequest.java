@@ -43,10 +43,26 @@ public class GetAllUsersRequest implements ApiRequest {
     @Override
     public HttpRequest getRequest(String token) {
         return Unirest.get(ApiData.URL + URL)
-                .queryString(ApiData.TOKEN_PARAM_NAME, token)
                 .queryString("start-index", startIndex)
                 .queryString("max-results", maxResult)
                 .queryString("include-guests", includeGuests)
-                .queryString("include-deleted", includeDeleted);
+                .queryString("include-deleted", includeDeleted)
+                .queryString(ApiData.TOKEN_PARAM_NAME, token);
+    }
+
+    public int getStartIndex() {
+        return startIndex;
+    }
+
+    public int getMaxResult() {
+        return maxResult;
+    }
+
+    public boolean isIncludeGuests() {
+        return includeGuests;
+    }
+
+    public boolean isIncludeDeleted() {
+        return includeDeleted;
     }
 }

@@ -15,8 +15,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.HttpStatus;
 import org.codehaus.jackson.map.ObjectMapper;
 import pl.ppwozniak.hipchat.api2.common.ApiRequest;
+import pl.ppwozniak.hipchat.api2.common.ApiResponse;
 import pl.ppwozniak.hipchat.api2.models.users.ViewUserModel;
-import pl.ppwozniak.hipchat.api2.response.ApiResponse;
 
 import java.io.IOException;
 
