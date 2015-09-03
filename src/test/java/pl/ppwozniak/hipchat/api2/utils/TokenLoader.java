@@ -20,7 +20,7 @@ public class TokenLoader {
 
     public static String loadToken() throws IOException {
         Properties properties = new Properties();
-        properties.load(new FileReader("src/main/resources/authToken.properties"));
+        properties.load(new FileReader("src/test/resources/authToken.properties"));
 
         return properties.getProperty("token");
     }
