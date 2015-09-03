@@ -1,6 +1,7 @@
 # project files
 target
 runners
+requestdata.properties
 
 # another files
 authToken.properties

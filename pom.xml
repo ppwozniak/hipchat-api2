@@ -42,6 +42,7 @@
         <!-- dependencies versions -->
         <version.org.codehaus.jackson.jackson-mapper-asl>1.9.13</version.org.codehaus.jackson.jackson-mapper-asl>
         <version.com.mashape.unirest.unirest-java>1.4.7</version.com.mashape.unirest.unirest-java>
+        <version.org.testng.testng>6.9.6</version.org.testng.testng>
     </properties>
 
 
@@ -146,6 +147,12 @@
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
             <version>${version.com.mashape.unirest.unirest-java}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${version.org.testng.testng}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
