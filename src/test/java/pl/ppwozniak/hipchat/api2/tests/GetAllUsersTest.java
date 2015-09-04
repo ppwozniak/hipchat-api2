@@ -49,9 +49,4 @@ public class GetAllUsersTest {
         int status = ApiClient.createClient(TokenLoader.loadToken()).getAllUsers(0, 100, false, true).getStatus();
         Assert.assertEquals(status, HttpStatus.SC_OK);
     }
-
-    @Test
-    public void test() throws Exception {
-        System.out.println("URL: " + ApiClient.createClient(TokenLoader.loadToken()).getAllUsers().getRequest().getUrl());
-    }
 }
