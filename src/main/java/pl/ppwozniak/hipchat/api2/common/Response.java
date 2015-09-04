@@ -9,6 +9,8 @@
  */
 package pl.ppwozniak.hipchat.api2.common;
 
+import pl.ppwozniak.hipchat.api2.models.ErrorModel;
+
 import java.io.Serializable;
 
 /**
@@ -22,10 +24,27 @@ public class Response<R, M> implements Serializable {
 
     private M model;
 
+    private ErrorModel errorModel;
+
     public Response(R request, int status, M model) {
         this.request = request;
         this.status = status;
         this.model = model;
+        this.errorModel = new ErrorModel();
+    }
+
+    public Response(R request, int status, ErrorModel errorModel) {
+        this.request = request;
+        this.status = status;
+        this.model = null;
+        this.errorModel = errorModel;
+    }
+
+    public Response(R request, int status, M model, ErrorModel errorModel) {
+        this.request = request;
+        this.status = status;
+        this.model = model;
+        this.errorModel = errorModel;
     }
 
     public R getRequest() {
@@ -38,5 +57,19 @@ public class Response<R, M> implements Serializable {
 
     public M getModel() {
         return model;
+    }
+
+    public ErrorModel getErrorModel() {
+        return errorModel;
+    }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "request=" + request +
+                ", status=" + status +
+                ", model=" + model +
+                ", errorModel=" + errorModel +
+                '}';
     }
 }

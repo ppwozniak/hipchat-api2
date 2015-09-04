@@ -60,4 +60,14 @@ public class GetAutoJoinRoomsRequest extends AbstractRequest {
     public int getMaxResults() {
         return maxResults;
     }
+
+    @Override
+    public String toString() {
+        return "GetAutoJoinRoomsRequest{" +
+                "maxResults=" + maxResults +
+                ", startIndex=" + startIndex +
+                ", name='" + name + '\'' +
+                ", url=" + getUrl() +
+                '}';
+    }
 }

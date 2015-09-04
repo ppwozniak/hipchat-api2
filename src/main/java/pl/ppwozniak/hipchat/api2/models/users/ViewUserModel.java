@@ -152,6 +152,7 @@ public class ViewUserModel extends AbstractUserModel {
                 ", email='" + email + '\'' +
                 ", photoUrl='" + photoUrl + '\'' +
                 ", group=" + group +
+                ", links=" + getLinks() +
                 '}';
     }
 }

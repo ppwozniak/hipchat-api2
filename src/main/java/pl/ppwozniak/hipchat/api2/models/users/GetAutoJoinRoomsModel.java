@@ -49,6 +49,7 @@ public class GetAutoJoinRoomsModel extends AbstractUserModel {
                 "rooms=" + Arrays.toString(rooms) +
                 ", startIndex=" + startIndex +
                 ", maxResults=" + maxResults +
+                ",links=" + getLinks() +
                 '}';
     }
 }

@@ -67,4 +67,15 @@ public class GetAllUsersRequest extends AbstractRequest {
     public boolean isIncludeDeleted() {
         return includeDeleted;
     }
+
+    @Override
+    public String toString() {
+        return "GetAllUsersRequest{" +
+                "includeDeleted=" + includeDeleted +
+                ", includeGuests=" + includeGuests +
+                ", maxResult=" + maxResult +
+                ", startIndex=" + startIndex +
+                ", url=" + getUrl() +
+                '}';
+    }
 }

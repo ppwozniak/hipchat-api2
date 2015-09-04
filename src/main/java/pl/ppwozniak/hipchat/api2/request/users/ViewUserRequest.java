@@ -38,4 +38,12 @@ public class ViewUserRequest extends AbstractRequest {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "ViewUserRequest{" +
+                "name='" + name + '\'' +
+                ", url=" + getUrl() +
+                '}';
+    }
 }
