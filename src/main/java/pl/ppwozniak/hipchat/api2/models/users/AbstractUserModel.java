@@ -12,10 +12,12 @@ package pl.ppwozniak.hipchat.api2.models.users;
 import org.codehaus.jackson.annotate.JsonProperty;
 import pl.ppwozniak.hipchat.api2.models.users.sub.Links;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public abstract class AbstractUserModel {
+public abstract class AbstractUserModel implements Serializable {
 
     @JsonProperty("links")
     private Links links;

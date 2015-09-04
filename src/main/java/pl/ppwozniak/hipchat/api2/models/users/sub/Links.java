@@ -9,10 +9,12 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public class Links {
+public class Links implements Serializable {
 
     private String self;
     private String prev;

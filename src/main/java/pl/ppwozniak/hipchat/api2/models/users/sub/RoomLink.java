@@ -11,10 +11,12 @@ package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public class RoomLink {
+public class RoomLink implements Serializable {
 
     @JsonProperty("self")
     private String self;

@@ -9,10 +9,12 @@
  */
 package pl.ppwozniak.hipchat.api2.models.capabilities;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public class Vendor {
+public class Vendor implements Serializable {
 
     private String url;
 

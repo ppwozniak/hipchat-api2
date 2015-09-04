@@ -11,17 +11,17 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
+import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
-import pl.ppwozniak.hipchat.api2.common.request.ApiRequest;
 
 /**
  * @author wp
  */
-public class GetAutoJoinRoomsRequest implements ApiRequest {
+public class GetAutoJoinRoomsRequest extends AbstractRequest {
 
-    private static final String URL_P1 = "user/";
+    private static final String REQUEST_URL_PART1 = "user/";
 
-    private static final String URL_P2 = "/preference/auto-join";
+    private static final String REQUEST_URL_PART2 = "/preference/auto-join";
 
     private String name;
 
@@ -41,10 +41,12 @@ public class GetAutoJoinRoomsRequest implements ApiRequest {
 
     @Override
     public HttpRequest getRequest(String token) {
-        return Unirest.get(ApiData.URL + URL_P1 + name + URL_P2)
+        HttpRequest request = Unirest.get(ApiData.URL + REQUEST_URL_PART1 + name + REQUEST_URL_PART2)
                 .queryString("start-index", startIndex)
                 .queryString("max-results", maxResults)
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
+        setUrl(request.getUrl());
+        return request;
     }
 
     public String getName() {

@@ -11,10 +11,12 @@ package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public class Room {
+public class Room implements Serializable {
 
     @JsonProperty("id")
     private int id;

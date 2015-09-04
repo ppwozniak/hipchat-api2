@@ -7,7 +7,7 @@
  * Data utworzenia: 2015-08-16
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.common.request;
+package pl.ppwozniak.hipchat.api2.common;
 
 import com.mashape.unirest.request.HttpRequest;
 
@@ -17,4 +17,6 @@ import com.mashape.unirest.request.HttpRequest;
 public interface ApiRequest {
 
     HttpRequest getRequest(String token);
+
+    String getUrl();
 }

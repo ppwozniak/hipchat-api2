@@ -11,15 +11,15 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
+import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
-import pl.ppwozniak.hipchat.api2.common.request.ApiRequest;
 
 /**
  * @author wp
  */
-public class GetAllUsersRequest implements ApiRequest {
+public class GetAllUsersRequest extends AbstractRequest {
 
-    private static final String URL = "user";
+    private static final String REQUEST_URL = "user";
 
     private int startIndex;
 
@@ -42,12 +42,14 @@ public class GetAllUsersRequest implements ApiRequest {
 
     @Override
     public HttpRequest getRequest(String token) {
-        return Unirest.get(ApiData.URL + URL)
+        HttpRequest request = Unirest.get(ApiData.URL + REQUEST_URL)
                 .queryString("start-index", startIndex)
                 .queryString("max-results", maxResult)
                 .queryString("include-guests", includeGuests)
                 .queryString("include-deleted", includeDeleted)
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
+        setUrl(request.getUrl());
+        return request;
     }
 
     public int getStartIndex() {

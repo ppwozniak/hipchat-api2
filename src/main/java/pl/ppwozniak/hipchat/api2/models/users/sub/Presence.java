@@ -11,10 +11,12 @@ package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public class Presence {
+public class Presence implements Serializable {
 
     @JsonProperty("status")
     private String status;

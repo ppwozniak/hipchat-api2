@@ -11,10 +11,12 @@ package pl.ppwozniak.hipchat.api2.models.users.sub;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * @author wp
  */
-public class Client {
+public class Client implements Serializable {
 
     @JsonProperty("version")
     private String version;

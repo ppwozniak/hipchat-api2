@@ -11,15 +11,15 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
+import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
-import pl.ppwozniak.hipchat.api2.common.request.ApiRequest;
 
 /**
  * @author wp
  */
-public class ViewUserRequest implements ApiRequest {
+public class ViewUserRequest extends AbstractRequest {
 
-    private static final String URL = "user/";
+    private static final String REQUEST_URL = "user/";
 
     private String name;
 
@@ -29,8 +29,10 @@ public class ViewUserRequest implements ApiRequest {
 
     @Override
     public HttpRequest getRequest(String token) {
-        return Unirest.get(ApiData.URL + URL + name)
+        HttpRequest request = Unirest.get(ApiData.URL + REQUEST_URL + name)
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
+        setUrl(request.getUrl());
+        return request;
     }
 
     public String getName() {
