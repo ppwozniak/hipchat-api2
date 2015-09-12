@@ -9,6 +9,9 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 import pl.ppwozniak.hipchat.api2.models.users.sub.Links;
 
@@ -17,22 +20,11 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@Getter
+@NoArgsConstructor
+@ToString
 public abstract class AbstractUserModel implements Serializable {
 
     @JsonProperty("links")
     private Links links;
-
-    public AbstractUserModel() {
-    }
-
-    public Links getLinks() {
-        return links;
-    }
-
-    @Override
-    public String toString() {
-        return "AbstractUserModel{" +
-                "links=" + links +
-                '}';
-    }
 }

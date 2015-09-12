@@ -9,57 +9,23 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * @author wp
  */
-public class Links implements Serializable {
+@Getter
+@ToString(callSuper = true)
+@NoArgsConstructor
+public class Links extends Link {
 
-    private String self;
+    @JsonProperty("prev")
     private String prev;
+
+    @JsonProperty("next")
     private String next;
-
-    public Links() {
-    }
-
-    public Links(String self, String prev, String next) {
-        this.self = self;
-        this.prev = prev;
-        this.next = next;
-    }
-
-    public String getSelf() {
-        return self;
-    }
-
-    public void setSelf(String self) {
-        this.self = self;
-    }
-
-    public String getPrev() {
-        return prev;
-    }
-
-    public void setPrev(String prev) {
-        this.prev = prev;
-    }
-
-    public String getNext() {
-        return next;
-    }
-
-    public void setNext(String next) {
-        this.next = next;
-    }
-
-    @Override
-    public String toString() {
-        return "Links{" +
-                "self='" + self + '\'' +
-                ", prev='" + prev + '\'' +
-                ", next='" + next + '\'' +
-                '}';
-    }
 }
 
