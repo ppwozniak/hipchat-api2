@@ -42,6 +42,7 @@
         <!-- dependencies versions -->
         <version.org.codehaus.jackson.jackson-mapper-asl>1.9.13</version.org.codehaus.jackson.jackson-mapper-asl>
         <version.com.mashape.unirest.unirest-java>1.4.7</version.com.mashape.unirest.unirest-java>
+        <version.org.projectlombok.lombok>1.16.6</version.org.projectlombok.lombok>
         <version.org.testng.testng>6.9.6</version.org.testng.testng>
     </properties>
 
@@ -157,7 +158,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
+            <version>${version.org.projectlombok.lombok}</version>
         </dependency>
     </dependencies>
 
