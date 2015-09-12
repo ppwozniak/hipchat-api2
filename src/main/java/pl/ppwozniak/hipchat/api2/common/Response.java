@@ -30,7 +30,7 @@ public class Response<R, M> implements Serializable {
         this.request = request;
         this.status = status;
         this.model = model;
-        this.errorModel = new ErrorModel();
+        this.errorModel = null;
     }
 
     public Response(R request, int status, ErrorModel errorModel) {
