@@ -39,21 +39,21 @@ public class ApiClient implements Serializable {
         return new ApiClient(token);
     }
 
-    public Response<GetAllUsersRequest, GetAllUserModel> getAllUsers
+    public Response<GetAllUsersRequest, GetAllUsersModel> getAllUsers
             (int startIndex, int maxResult, boolean includeGuests, boolean includeDeleted)
             throws IOException, UnirestException {
         GetAllUsersRequest request = new GetAllUsersRequest(startIndex, maxResult, includeGuests, includeDeleted);
         HttpResponse<JsonNode> response = request.getRequest(token).asJson();
         if (response.getStatus() == HttpStatus.SC_OK) {
             return new Response<>(request, response.getStatus(),
-                    new ObjectMapper().readValue(response.getRawBody(), GetAllUserModel.class));
+                    new ObjectMapper().readValue(response.getRawBody(), GetAllUsersModel.class));
         } else {
             return new Response<>(request, response.getStatus(),
                     new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
         }
     }
 
-    public Response<GetAllUsersRequest, GetAllUserModel> getAllUsers() throws IOException, UnirestException {
+    public Response<GetAllUsersRequest, GetAllUsersModel> getAllUsers() throws IOException, UnirestException {
         return getAllUsers(0, 100, false, false);
     }
 

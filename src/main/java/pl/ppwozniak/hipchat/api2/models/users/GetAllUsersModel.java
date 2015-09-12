@@ -17,7 +17,7 @@ import java.util.Arrays;
 /**
  * @author wp
  */
-public class GetAllUserModel extends AbstractUserModel {
+public class GetAllUsersModel extends AbstractUserModel {
 
     @JsonProperty("items")
     private User[] users;
@@ -28,7 +28,7 @@ public class GetAllUserModel extends AbstractUserModel {
     @JsonProperty("maxResults")
     private int maxResults;
 
-    public GetAllUserModel() {
+    public GetAllUsersModel() {
     }
 
     public User[] getUsers() {
