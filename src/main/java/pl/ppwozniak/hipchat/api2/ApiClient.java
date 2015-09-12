@@ -114,4 +114,17 @@ public class ApiClient implements Serializable {
                     new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
         }
     }
+
+    public Response<DeleteUserRequest, DeleteUserModel> deleteUser(String idOrEmail)
+            throws IOException, UnirestException {
+        DeleteUserRequest request = new DeleteUserRequest(idOrEmail);
+        HttpResponse<JsonNode> response = request.getRequest(token).asJson();
+
+        if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
+            return new Response<>(request, response.getStatus(), new DeleteUserModel("User deleted"));
+        } else {
+            return new Response<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
+        }
+    }
 }
