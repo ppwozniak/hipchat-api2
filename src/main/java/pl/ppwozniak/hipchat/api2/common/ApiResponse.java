@@ -16,7 +16,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
-public class Response<R, M> implements Serializable {
+public class ApiResponse<R, M> implements Serializable {
 
     private R request;
 
@@ -26,21 +26,21 @@ public class Response<R, M> implements Serializable {
 
     private ErrorModel errorModel;
 
-    public Response(R request, int status, M model) {
+    public ApiResponse(R request, int status, M model) {
         this.request = request;
         this.status = status;
         this.model = model;
         this.errorModel = null;
     }
 
-    public Response(R request, int status, ErrorModel errorModel) {
+    public ApiResponse(R request, int status, ErrorModel errorModel) {
         this.request = request;
         this.status = status;
         this.model = null;
         this.errorModel = errorModel;
     }
 
-    public Response(R request, int status, M model, ErrorModel errorModel) {
+    public ApiResponse(R request, int status, M model, ErrorModel errorModel) {
         this.request = request;
         this.status = status;
         this.model = model;
