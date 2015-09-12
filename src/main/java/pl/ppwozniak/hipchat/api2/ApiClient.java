@@ -102,9 +102,9 @@ public class ApiClient implements Serializable {
         }
     }
 
-    public Response<UpdateUserRequest, UpdateUserModel> updateUser(String nameOrEmail, UpdateUserRequestParams params)
+    public Response<UpdateUserRequest, UpdateUserModel> updateUser(String idOrEmail, UpdateUserRequestParams params)
             throws IOException, UnirestException {
-        UpdateUserRequest request = new UpdateUserRequest(nameOrEmail, params);
+        UpdateUserRequest request = new UpdateUserRequest(idOrEmail, params);
         HttpResponse<JsonNode> response = request.getRequest(token).asJson();
 
         if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {

@@ -30,14 +30,14 @@ public class UpdateUserRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user/";
 
-    private String nameOrEmail;
+    private String idOrEmail;
 
     private UpdateUserRequestParams params;
 
     @Override
     public HttpRequest getRequest(String token) {
         Unirest.setObjectMapper(new ClientJsonMapper());
-        HttpRequestWithBody request = Unirest.put(ApiData.URL + REQUEST_URL + nameOrEmail)
+        HttpRequestWithBody request = Unirest.put(ApiData.URL + REQUEST_URL + idOrEmail)
                 .header("Content-Type", "application/json")
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
 
@@ -53,7 +53,7 @@ public class UpdateUserRequest extends AbstractRequest {
     @Override
     public String toString() {
         return "UpdateUserModel{" +
-                "nameOrEmail='" + nameOrEmail + '\'' +
+                "idOrEmail='" + idOrEmail + '\'' +
                 ", params=" + params +
                 '}';
     }
