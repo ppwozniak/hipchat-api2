@@ -16,14 +16,10 @@ import org.apache.http.HttpStatus;
 import org.codehaus.jackson.map.ObjectMapper;
 import pl.ppwozniak.hipchat.api2.common.Response;
 import pl.ppwozniak.hipchat.api2.models.ErrorModel;
-import pl.ppwozniak.hipchat.api2.models.users.CreateUserModel;
-import pl.ppwozniak.hipchat.api2.models.users.GetAllUserModel;
-import pl.ppwozniak.hipchat.api2.models.users.GetAutoJoinRoomsModel;
-import pl.ppwozniak.hipchat.api2.models.users.ViewUserModel;
-import pl.ppwozniak.hipchat.api2.request.users.CreateUserRequest;
-import pl.ppwozniak.hipchat.api2.request.users.GetAllUsersRequest;
-import pl.ppwozniak.hipchat.api2.request.users.GetAutoJoinRoomsRequest;
-import pl.ppwozniak.hipchat.api2.request.users.ViewUserRequest;
+import pl.ppwozniak.hipchat.api2.models.users.*;
+import pl.ppwozniak.hipchat.api2.request.users.*;
+import pl.ppwozniak.hipchat.api2.request.users.params.CreateUserRequestParams;
+import pl.ppwozniak.hipchat.api2.request.users.params.UpdateUserRequestParams;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -92,27 +88,30 @@ public class ApiClient implements Serializable {
         }
     }
 
-    private Response<CreateUserRequest, CreateUserModel> createUser(CreateUserRequest request)
+    public Response<CreateUserRequest, CreateUserModel> createUser(CreateUserRequestParams params)
             throws IOException, UnirestException {
+        CreateUserRequest request = new CreateUserRequest(params);
         HttpResponse<JsonNode> response = request.getRequest(token).asJson();
 
-        if (response.getStatus() != HttpStatus.SC_CREATED) {
-            return new Response<>(request, response.getStatus(),
-                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
-        } else {
+        if (response.getStatus() == HttpStatus.SC_CREATED) {
             return new Response<>(request, response.getStatus(),
                     new ObjectMapper().readValue(response.getRawBody(), CreateUserModel.class));
+        } else {
+            return new Response<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
         }
     }
 
-    public Response<CreateUserRequest, CreateUserModel> createUser(String name, String email)
+    public Response<UpdateUserRequest, UpdateUserModel> updateUser(String nameOrEmail, UpdateUserRequestParams params)
             throws IOException, UnirestException {
-        return createUser(new CreateUserRequest(name, email));
-    }
+        UpdateUserRequest request = new UpdateUserRequest(nameOrEmail, params);
+        HttpResponse<JsonNode> response = request.getRequest(token).asJson();
 
-    public Response<CreateUserRequest, CreateUserModel> createUser(String name, String title, String mentionName,
-                                                                   boolean admin, String timezone, String password,
-                                                                   String email) throws IOException, UnirestException {
-        return createUser(new CreateUserRequest(name, title, mentionName, admin, timezone, password, email));
+        if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
+            return new Response<>(request, response.getStatus(), new UpdateUserModel("User updated"));
+        } else {
+            return new Response<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
+        }
     }
 }

@@ -7,16 +7,20 @@
  * Data utworzenia: 2015-09-05
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.models.users.sub;
+package pl.ppwozniak.hipchat.api2.request.users.body;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-
-import java.io.Serializable;
 
 /**
  * @author wp
  */
-public class CreateUserFullBody extends CreateUserSimpleBody implements Serializable {
+public class CreateUserRequestBody {
+
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("email")
+    private String email;
 
     @JsonProperty("title")
     private String title;
@@ -33,13 +37,23 @@ public class CreateUserFullBody extends CreateUserSimpleBody implements Serializ
     @JsonProperty("password")
     private String password;
 
-    public CreateUserFullBody(String name, String title, String mentionName, boolean admin, String timezone, String password, String email) {
-        super(name, email);
+    public CreateUserRequestBody(String name, String title, String mentionName, boolean admin, String timezone,
+                                 String password, String email) {
+        this.name = name;
+        this.email = email;
         this.title = title;
         this.mentionName = mentionName;
         this.admin = admin;
         this.timezone = timezone;
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getTitle() {
@@ -65,11 +79,13 @@ public class CreateUserFullBody extends CreateUserSimpleBody implements Serializ
     @Override
     public String toString() {
         return "CreateUserFullBody{" +
-                "title='" + title + '\'' +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", title='" + title + '\'' +
                 ", mentionName='" + mentionName + '\'' +
                 ", admin=" + admin +
                 ", timezone='" + timezone + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + "[password]" + '\'' +
                 '}';
     }
 }

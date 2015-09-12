@@ -4,7 +4,7 @@
  * <p/>
  * Autor: Paweł Woźniak
  * <p/>
- * Data utworzenia: 2015-09-04
+ * Data utworzenia: 2015-09-12
  * *************************************************
  */
 package pl.ppwozniak.hipchat.api2.models;
@@ -14,22 +14,20 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import java.io.Serializable;
-
 /**
  * @author wp
  */
 @Getter
-@ToString
 @NoArgsConstructor
-public class ErrorModel implements Serializable {
+@ToString
+public class ErrorStatus {
 
-    @JsonProperty("error")
-    private Error error;
+    @JsonProperty("description")
+    private String description;
+
+    @JsonProperty("optional")
+    private String optional;
 
     @JsonProperty("type")
-    private ErrorType type;
-
-    @JsonProperty("status")
-    private ErrorStatus status;
+    private String[] type;
 }

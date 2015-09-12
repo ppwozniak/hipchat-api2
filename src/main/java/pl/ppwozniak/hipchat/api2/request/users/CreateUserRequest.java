@@ -15,8 +15,8 @@ import com.mashape.unirest.request.HttpRequestWithBody;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
 import pl.ppwozniak.hipchat.api2.common.ClientJsonMapper;
-import pl.ppwozniak.hipchat.api2.models.users.sub.CreateUserFullBody;
-import pl.ppwozniak.hipchat.api2.models.users.sub.CreateUserSimpleBody;
+import pl.ppwozniak.hipchat.api2.request.users.body.CreateUserRequestBody;
+import pl.ppwozniak.hipchat.api2.request.users.params.CreateUserRequestParams;
 
 /**
  * @author wp
@@ -25,38 +25,10 @@ public class CreateUserRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user";
 
-    private String name;
+    private CreateUserRequestParams params;
 
-    private String title;
-
-    private String mentionName;
-
-    private boolean admin;
-
-    private String timezone;
-
-    private String password;
-
-    private String email;
-
-    private int type;
-
-    public CreateUserRequest(String name, String title, String mentionName, boolean admin, String timezone,
-                             String password, String email) {
-        type = 0;
-        this.name = name;
-        this.title = title;
-        this.mentionName = mentionName;
-        this.admin = admin;
-        this.timezone = timezone;
-        this.password = password;
-        this.email = email;
-    }
-
-    public CreateUserRequest(String name, String email) {
-        type = 1;
-        this.name = name;
-        this.email = email;
+    public CreateUserRequest(CreateUserRequestParams params) {
+        this.params = params;
     }
 
     @Override
@@ -66,64 +38,23 @@ public class CreateUserRequest extends AbstractRequest {
                 .header("Content-Type", "application/json")
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
 
-        switch (type) {
-            case 0:
-                CreateUserFullBody createUserFullBody = new CreateUserFullBody(name, title, mentionName, admin,
-                        timezone, password, email);
-                request.body(createUserFullBody);
-                break;
-            case 1:
-                CreateUserSimpleBody createUserSimpleBody = new CreateUserSimpleBody(name, email);
-                request.body(createUserSimpleBody);
-                break;
-            default:
-                break;
-        }
+        CreateUserRequestBody body = new CreateUserRequestBody(params.getName(), params.getTitle(),
+                params.getMentionName(), params.isGroupAdmin(), params.getTimezone(), params.getPassword(),
+                params.getEmail());
+        request.body(body);
+
         setUrl(request.getUrl());
         return request;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getMentionName() {
-        return mentionName;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public String getTimezone() {
-        return timezone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
+    public CreateUserRequestParams getParams() {
+        return params;
     }
 
     @Override
     public String toString() {
         return "CreateUserRequest{" +
-                "name='" + name + '\'' +
-                ", title='" + title + '\'' +
-                ", mentionName='" + mentionName + '\'' +
-                ", admin=" + admin +
-                ", timezone='" + timezone + '\'' +
-                ", password='" + "[password]" + '\'' +
-                ", email='" + email + '\'' +
-                ", url=" + getUrl() +
+                "params=" + params +
                 '}';
-
-
     }
 }
