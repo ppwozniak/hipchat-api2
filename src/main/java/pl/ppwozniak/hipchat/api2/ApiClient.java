@@ -20,8 +20,11 @@ import pl.ppwozniak.hipchat.api2.models.users.*;
 import pl.ppwozniak.hipchat.api2.request.users.*;
 import pl.ppwozniak.hipchat.api2.request.users.params.CreateUserRequestParams;
 import pl.ppwozniak.hipchat.api2.request.users.params.UpdateUserRequestParams;
+import pl.ppwozniak.hipchat.api2.request.users.sub.GetPhotoType;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 
 /**
@@ -122,6 +125,39 @@ public class ApiClient implements Serializable {
 
         if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
             return new ApiResponse<>(request, response.getStatus(), new DeleteUserModel("User deleted"));
+        } else {
+            return new ApiResponse<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
+        }
+    }
+
+    private byte[] getPhotoAsBytes(InputStream is) throws IOException {
+        int b;
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        while (true) {
+            b = is.read();
+
+            if (b == -1) {
+                break;
+            }
+
+            baos.write(b);
+        }
+
+        baos.close();
+
+        return baos.toByteArray();
+    }
+
+    public ApiResponse<GetPhotoRequest, GetPhotoModel> getPhoto(String idOrEmail, GetPhotoType type)
+            throws IOException, UnirestException {
+        GetPhotoRequest request = new GetPhotoRequest(idOrEmail, type);
+        HttpResponse<InputStream> response = request.getRequest(token).asBinary();
+
+        if (response.getStatus() == HttpStatus.SC_OK) {
+            return new ApiResponse<>(request, response.getStatus(), new GetPhotoModel(getPhotoAsBytes(response.getBody())));
         } else {
             return new ApiResponse<>(request, response.getStatus(),
                     new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));

@@ -7,7 +7,7 @@
  * Data utworzenia: 2015-09-03
  * *************************************************
  */
-package pl.ppwozniak.hipchat.api2.tests;
+package pl.ppwozniak.hipchat.api2.users;
 
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
