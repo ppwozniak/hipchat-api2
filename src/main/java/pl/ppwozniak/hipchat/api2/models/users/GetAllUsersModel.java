@@ -9,14 +9,14 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 import pl.ppwozniak.hipchat.api2.models.users.sub.User;
-
-import java.util.Arrays;
 
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class GetAllUsersModel extends AbstractUserModel {
 
     @JsonProperty("items")
@@ -41,15 +41,5 @@ public class GetAllUsersModel extends AbstractUserModel {
 
     public int getMaxResults() {
         return maxResults;
-    }
-
-    @Override
-    public String toString() {
-        return "GetAllUserModel{" +
-                "users=" + Arrays.toString(users) +
-                ", startIndex=" + startIndex +
-                ", maxResults=" + maxResults +
-                ", links=" + getLinks() +
-                '}';
     }
 }

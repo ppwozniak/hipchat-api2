@@ -11,12 +11,14 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
 
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class GetAutoJoinRoomsRequest extends AbstractRequest {
 
     private static final String REQUEST_URL_PART1 = "user/";
@@ -59,15 +61,5 @@ public class GetAutoJoinRoomsRequest extends AbstractRequest {
 
     public int getMaxResults() {
         return maxResults;
-    }
-
-    @Override
-    public String toString() {
-        return "GetAutoJoinRoomsRequest{" +
-                "maxResults=" + maxResults +
-                ", startIndex=" + startIndex +
-                ", name='" + name + '\'' +
-                ", url=" + getUrl() +
-                '}';
     }
 }

@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.request.users.params;
 
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.models.users.ViewUserModel;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@ToString
 public class UpdateUserRequestParams implements Serializable {
 
     private String name;
@@ -35,6 +37,19 @@ public class UpdateUserRequestParams implements Serializable {
     private String password;
 
     private String email;
+
+    public UpdateUserRequestParams(String name, String title, String status, String show, String mentionName,
+                                   boolean admin, String timezone, String password, String email) {
+        this.name = name;
+        this.title = title;
+        this.status = status;
+        this.show = show;
+        this.mentionName = mentionName;
+        this.admin = admin;
+        this.timezone = timezone;
+        this.password = password;
+        this.email = email;
+    }
 
     public UpdateUserRequestParams(String email, String mentionName, String show, String name) {
         this(name, "", null, null, mentionName, false, "UTC", "", email);
@@ -56,19 +71,6 @@ public class UpdateUserRequestParams implements Serializable {
             this.status = null;
             this.show = null;
         }
-    }
-
-    public UpdateUserRequestParams(String name, String title, String status, String show, String mentionName,
-                                   boolean admin, String timezone, String password, String email) {
-        this.name = name;
-        this.title = title;
-        this.status = status;
-        this.show = show;
-        this.mentionName = mentionName;
-        this.admin = admin;
-        this.timezone = timezone;
-        this.password = password;
-        this.email = email;
     }
 
     public String getName() {
@@ -141,20 +143,5 @@ public class UpdateUserRequestParams implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "UpdateUserParams{" +
-                "name='" + name + '\'' +
-                ", title='" + title + '\'' +
-                ", status='" + status + '\'' +
-                ", show='" + show + '\'' +
-                ", mentionName='" + mentionName + '\'' +
-                ", admin=" + admin +
-                ", timezone='" + timezone + '\'' +
-                ", password='" + "[password]" + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }

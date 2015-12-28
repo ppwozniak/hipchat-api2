@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@ToString
 public class User implements Serializable {
 
     @JsonProperty("mention_name")
@@ -54,16 +56,5 @@ public class User implements Serializable {
 
     public String getVersion() {
         return version;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "mentionName='" + mentionName + '\'' +
-                ", id=" + id +
-                ", link=" + link +
-                ", name='" + name + '\'' +
-                ", version='" + version + '\'' +
-                '}';
     }
 }

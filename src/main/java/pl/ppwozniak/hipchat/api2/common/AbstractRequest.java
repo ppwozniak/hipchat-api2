@@ -9,11 +9,14 @@
  */
 package pl.ppwozniak.hipchat.api2.common;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
  * @author wp
  */
+@ToString
 public abstract class AbstractRequest implements ApiRequest, Serializable {
 
     private String url;

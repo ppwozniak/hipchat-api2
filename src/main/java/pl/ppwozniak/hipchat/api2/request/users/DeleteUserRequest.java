@@ -11,8 +11,6 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
@@ -20,14 +18,16 @@ import pl.ppwozniak.hipchat.api2.common.ApiData;
 /**
  * @author wp
  */
-@Getter
-@AllArgsConstructor
-@ToString
+@ToString(callSuper = true)
 public class DeleteUserRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user/";
 
     private String idOrEmail;
+
+    public DeleteUserRequest(String idOrEmail) {
+        this.idOrEmail = idOrEmail;
+    }
 
     @Override
     public HttpRequest getRequest(String token) {

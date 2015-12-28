@@ -17,7 +17,7 @@ public class ApiData {
     /**
      *
      */
-    public static final String BASE_URL = "https://api.hipchat.com/";
+    public static final String BASE_URL = "https://api.hipchat.com";
 
     /**
      *
@@ -27,7 +27,7 @@ public class ApiData {
     /**
      *
      */
-    public static final String URL = BASE_URL + API_VERSION + "/";
+    public static final String URL = BASE_URL + "/" + API_VERSION + "/";
 
     /**
      *

@@ -9,17 +9,13 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * @author wp
  */
-@Getter
 @ToString(callSuper = true)
-@NoArgsConstructor
 public class Links extends Link {
 
     @JsonProperty("prev")
@@ -27,5 +23,16 @@ public class Links extends Link {
 
     @JsonProperty("next")
     private String next;
+
+    public Links() {
+    }
+
+    public String getPrev() {
+        return prev;
+    }
+
+    public String getNext() {
+        return next;
+    }
 }
 

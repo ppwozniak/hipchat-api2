@@ -9,8 +9,6 @@
  */
 package pl.ppwozniak.hipchat.api2.models;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -19,9 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
-@Getter
 @ToString
-@NoArgsConstructor
 public class ErrorModel implements Serializable {
 
     @JsonProperty("error")
@@ -32,4 +28,19 @@ public class ErrorModel implements Serializable {
 
     @JsonProperty("status")
     private ErrorStatus status;
+
+    public ErrorModel() {
+    }
+
+    public Error getError() {
+        return error;
+    }
+
+    public ErrorType getType() {
+        return type;
+    }
+
+    public ErrorStatus getStatus() {
+        return status;
+    }
 }

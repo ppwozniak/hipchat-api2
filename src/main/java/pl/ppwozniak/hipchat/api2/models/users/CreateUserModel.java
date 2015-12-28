@@ -9,11 +9,13 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class CreateUserModel extends AbstractUserModel {
 
     @JsonProperty("id")
@@ -31,14 +33,5 @@ public class CreateUserModel extends AbstractUserModel {
 
     public String getPassword() {
         return password;
-    }
-
-    @Override
-    public String toString() {
-        return "CreateUserModel{" +
-                "id=" + id +
-                ", password='" + password + '\'' +
-                ", links=" + getLinks() +
-                '}';
     }
 }

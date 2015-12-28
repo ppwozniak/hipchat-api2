@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 import pl.ppwozniak.hipchat.api2.models.users.sub.Group;
 import pl.ppwozniak.hipchat.api2.models.users.sub.Presence;
@@ -16,6 +17,7 @@ import pl.ppwozniak.hipchat.api2.models.users.sub.Presence;
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class ViewUserModel extends AbstractUserModel {
 
     @JsonProperty("xmpp_jid")
@@ -65,6 +67,9 @@ public class ViewUserModel extends AbstractUserModel {
 
     @JsonProperty("group")
     private Group group;
+
+    @JsonProperty("roles")
+    private String[] roles;
 
     public ViewUserModel() {
     }
@@ -133,26 +138,7 @@ public class ViewUserModel extends AbstractUserModel {
         return group;
     }
 
-    @Override
-    public String toString() {
-        return "ViewUserModel{" +
-                "jabberId='" + jabberId + '\'' +
-                ", deleted=" + deleted +
-                ", name='" + name + '\'' +
-                ", lastActive='" + lastActive + '\'' +
-                ", title='" + title + '\'' +
-                ", presence=" + presence +
-                ", dateOfCreation='" + dateOfCreation + '\'' +
-                ", id=" + id +
-                ", mentionName='" + mentionName + '\'' +
-                ", version='" + version + '\'' +
-                ", groupAdmin=" + groupAdmin +
-                ", timezone='" + timezone + '\'' +
-                ", guest=" + guest +
-                ", email='" + email + '\'' +
-                ", photoUrl='" + photoUrl + '\'' +
-                ", group=" + group +
-                ", links=" + getLinks() +
-                '}';
+    public String[] getRoles() {
+        return roles;
     }
 }

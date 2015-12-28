@@ -7,13 +7,12 @@
 
     <groupId>pl.ppwozniak</groupId>
     <artifactId>hipchat-api2</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>HipChat-API2</name>
-    <description>HipChat API version 2 Client Library for Java</description>
     <url>https://github.com/ppwozniak/hipchat-api2</url>
     <inceptionYear>2015</inceptionYear>
+    <description>HipChat API version 2 Client Library for Java</description>
 
     <properties>
         <!-- main properties -->
@@ -25,7 +24,6 @@
         <version.org.apache.maven.plugins.maven-compiler-plugin>
             3.3
         </version.org.apache.maven.plugins.maven-compiler-plugin>
-        <version.org.apache.maven.plugins.maven-gpg-plugin>1.6</version.org.apache.maven.plugins.maven-gpg-plugin>
         <version.org.apache.maven.plugins.maven-jar-plugin>2.6</version.org.apache.maven.plugins.maven-jar-plugin>
         <version.org.apache.maven.plugins.maven-javadoc-plugin>
             2.10.3
@@ -35,15 +33,12 @@
         </version.org.apache.maven.plugins.maven-project-info-reports-plugin>
         <version.org.apache.maven.plugins.maven-site-plugin>3.4</version.org.apache.maven.plugins.maven-site-plugin>
         <version.org.apache.maven.plugins.maven-source-plugin>2.4</version.org.apache.maven.plugins.maven-source-plugin>
-        <version.org.sonatype.plugins.nexus-staging-maven-plugin>
-            1.6.6
-        </version.org.sonatype.plugins.nexus-staging-maven-plugin>
 
         <!-- dependencies versions -->
         <version.org.codehaus.jackson.jackson-mapper-asl>1.9.13</version.org.codehaus.jackson.jackson-mapper-asl>
         <version.com.mashape.unirest.unirest-java>1.4.7</version.com.mashape.unirest.unirest-java>
         <version.org.projectlombok.lombok>1.16.6</version.org.projectlombok.lombok>
-        <version.org.testng.testng>6.9.6</version.org.testng.testng>
+        <version.org.testng.testng>6.9.10</version.org.testng.testng>
     </properties>
 
 
@@ -109,31 +104,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>${version.org.apache.maven.plugins.maven-gpg-plugin}</version>
-                <executions>
-                    <execution>
-                        <id>default-gpg</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${version.org.sonatype.plugins.nexus-staging-maven-plugin}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -204,6 +174,10 @@
             <id>ppwozniak</id>
             <name>Paweł Woźniak</name>
             <email>ppwozniak@ppwozniak.pl</email>
+            <roles>
+                <role>Developer</role>
+                <role>Project Manager</role>
+            </roles>
         </developer>
     </developers>
 
@@ -222,18 +196,6 @@
         <license>
             <name>MIT License</name>
             <url>http://opensource.org/licenses/MIT</url>
-            <distribution>repo</distribution>
         </license>
     </licenses>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-    </distributionManagement>
 </project>

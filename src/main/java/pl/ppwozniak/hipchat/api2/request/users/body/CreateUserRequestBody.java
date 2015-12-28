@@ -9,12 +9,16 @@
  */
 package pl.ppwozniak.hipchat.api2.request.users.body;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
+
+import java.io.Serializable;
 
 /**
  * @author wp
  */
-public class CreateUserRequestBody {
+@ToString
+public class CreateUserRequestBody implements Serializable {
 
     @JsonProperty("name")
     private String name;
@@ -37,8 +41,8 @@ public class CreateUserRequestBody {
     @JsonProperty("password")
     private String password;
 
-    public CreateUserRequestBody(String name, String title, String mentionName, boolean admin, String timezone,
-                                 String password, String email) {
+    public CreateUserRequestBody(String name, String email, String title, String mentionName, boolean admin,
+                                 String timezone, String password) {
         this.name = name;
         this.email = email;
         this.title = title;
@@ -74,18 +78,5 @@ public class CreateUserRequestBody {
 
     public String getPassword() {
         return password;
-    }
-
-    @Override
-    public String toString() {
-        return "CreateUserFullBody{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", title='" + title + '\'' +
-                ", mentionName='" + mentionName + '\'' +
-                ", admin=" + admin +
-                ", timezone='" + timezone + '\'' +
-                ", password='" + "[password]" + '\'' +
-                '}';
     }
 }

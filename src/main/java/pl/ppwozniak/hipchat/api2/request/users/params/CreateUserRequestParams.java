@@ -9,11 +9,14 @@
  */
 package pl.ppwozniak.hipchat.api2.request.users.params;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
  * @author wp
  */
+@ToString
 public class CreateUserRequestParams implements Serializable {
 
     private String name;
@@ -30,17 +33,18 @@ public class CreateUserRequestParams implements Serializable {
 
     private String email;
 
+    private String[] roles;
 
     public CreateUserRequestParams(String name, String email) {
-        this(name, "", name, false, "UTC", null, email);
+        this(name, "", name, false, "UTC", null, email, new String[]{});
     }
 
     public CreateUserRequestParams(String name, String email, String password) {
-        this(name, "", name, false, "UTC", password, email);
+        this(name, "", name, false, "UTC", password, email, new String[]{});
     }
 
-    public CreateUserRequestParams(String name, String title, String mentionName, boolean groupAdmin, String timezone,
-                                   String password, String email) {
+    public CreateUserRequestParams(String name, String title, String mentionName, boolean groupAdmin,
+                                   String timezone, String password, String email, String[] roles) {
         this.name = name;
         this.title = title;
         this.mentionName = mentionName;
@@ -48,6 +52,7 @@ public class CreateUserRequestParams implements Serializable {
         this.timezone = timezone;
         this.password = password;
         this.email = email;
+        this.roles = roles;
     }
 
     public String getName() {
@@ -106,16 +111,11 @@ public class CreateUserRequestParams implements Serializable {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "CreateUserRequestParams{" +
-                "name='" + name + '\'' +
-                ", title='" + title + '\'' +
-                ", mentionName='" + mentionName + '\'' +
-                ", groupAdmin=" + groupAdmin +
-                ", timezone='" + timezone + '\'' +
-                ", password='" + "[password]" + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public String[] getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String[] roles) {
+        this.roles = roles;
     }
 }

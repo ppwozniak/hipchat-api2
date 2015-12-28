@@ -11,12 +11,14 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
 
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class GetAllUsersRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user";
@@ -66,16 +68,5 @@ public class GetAllUsersRequest extends AbstractRequest {
 
     public boolean isIncludeDeleted() {
         return includeDeleted;
-    }
-
-    @Override
-    public String toString() {
-        return "GetAllUsersRequest{" +
-                "includeDeleted=" + includeDeleted +
-                ", includeGuests=" + includeGuests +
-                ", maxResult=" + maxResult +
-                ", startIndex=" + startIndex +
-                ", url=" + getUrl() +
-                '}';
     }
 }

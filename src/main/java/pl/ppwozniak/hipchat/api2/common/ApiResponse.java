@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.common;
 
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.models.ErrorModel;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@ToString
 public class ApiResponse<R, M> implements Serializable {
 
     private R request;
@@ -61,15 +63,5 @@ public class ApiResponse<R, M> implements Serializable {
 
     public ErrorModel getErrorModel() {
         return errorModel;
-    }
-
-    @Override
-    public String toString() {
-        return "Response{" +
-                "request=" + request +
-                ", status=" + status +
-                ", model=" + model +
-                ", errorModel=" + errorModel +
-                '}';
     }
 }

@@ -12,8 +12,7 @@ package pl.ppwozniak.hipchat.api2.request.users;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
 import com.mashape.unirest.request.HttpRequestWithBody;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
 import pl.ppwozniak.hipchat.api2.common.ClientJsonMapper;
@@ -24,8 +23,7 @@ import pl.ppwozniak.hipchat.api2.request.users.sub.RequestPresence;
 /**
  * @author wp
  */
-@Getter
-@AllArgsConstructor
+@ToString(callSuper = true)
 public class UpdateUserRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user/";
@@ -33,6 +31,11 @@ public class UpdateUserRequest extends AbstractRequest {
     private String idOrEmail;
 
     private UpdateUserRequestParams params;
+
+    public UpdateUserRequest(String idOrEmail, UpdateUserRequestParams params) {
+        this.idOrEmail = idOrEmail;
+        this.params = params;
+    }
 
     @Override
     public HttpRequest getRequest(String token) {
@@ -50,11 +53,11 @@ public class UpdateUserRequest extends AbstractRequest {
         return request;
     }
 
-    @Override
-    public String toString() {
-        return "UpdateUserModel{" +
-                "idOrEmail='" + idOrEmail + '\'' +
-                ", params=" + params +
-                '}';
+    public String getIdOrEmail() {
+        return idOrEmail;
+    }
+
+    public UpdateUserRequestParams getParams() {
+        return params;
     }
 }

@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@ToString
 public class RoomLink implements Serializable {
 
     @JsonProperty("self")
@@ -47,15 +49,5 @@ public class RoomLink implements Serializable {
 
     public String getParticipants() {
         return participants;
-    }
-
-    @Override
-    public String toString() {
-        return "RoomLink{" +
-                "self='" + self + '\'' +
-                ", webhooks='" + webhooks + '\'' +
-                ", members='" + members + '\'' +
-                ", participants='" + participants + '\'' +
-                '}';
     }
 }

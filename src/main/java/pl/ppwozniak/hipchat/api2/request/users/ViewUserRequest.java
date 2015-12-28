@@ -11,12 +11,14 @@ package pl.ppwozniak.hipchat.api2.request.users;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
 
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class ViewUserRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user/";
@@ -37,13 +39,5 @@ public class ViewUserRequest extends AbstractRequest {
 
     public String getName() {
         return name;
-    }
-
-    @Override
-    public String toString() {
-        return "ViewUserRequest{" +
-                "name='" + name + '\'' +
-                ", url=" + getUrl() +
-                '}';
     }
 }

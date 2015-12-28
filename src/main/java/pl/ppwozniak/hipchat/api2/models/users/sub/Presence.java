@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users.sub;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@ToString
 public class Presence implements Serializable {
 
     @JsonProperty("status")
@@ -54,16 +56,5 @@ public class Presence implements Serializable {
 
     public boolean isOnline() {
         return online;
-    }
-
-    @Override
-    public String toString() {
-        return "Presence{" +
-                "online=" + online +
-                ", client=" + client +
-                ", show='" + show + '\'' +
-                ", idle=" + idle +
-                ", status='" + status + '\'' +
-                '}';
     }
 }

@@ -9,8 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.request.users.body;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 import pl.ppwozniak.hipchat.api2.request.users.sub.RequestPresence;
 
@@ -19,8 +18,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
-@Getter
-@AllArgsConstructor
+@ToString
 public class UpdateUserRequestBody implements Serializable {
 
     @JsonProperty("name")
@@ -47,17 +45,47 @@ public class UpdateUserRequestBody implements Serializable {
     @JsonProperty("email")
     private String email;
 
-    @Override
-    public String toString() {
-        return "UpdateUserRequestBody{" +
-                "name='" + name + '\'' +
-                ", title='" + title + '\'' +
-                ", presence=" + presence +
-                ", mentionName='" + mentionName + '\'' +
-                ", groupAdmin=" + groupAdmin +
-                ", timezone='" + timezone + '\'' +
-                ", password='" + "[password]" + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public UpdateUserRequestBody(String name, String title, RequestPresence presence, String mentionName,
+                                 boolean groupAdmin, String timezone, String password, String email) {
+        this.name = name;
+        this.title = title;
+        this.presence = presence;
+        this.mentionName = mentionName;
+        this.groupAdmin = groupAdmin;
+        this.timezone = timezone;
+        this.password = password;
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public RequestPresence getPresence() {
+        return presence;
+    }
+
+    public String getMentionName() {
+        return mentionName;
+    }
+
+    public boolean isGroupAdmin() {
+        return groupAdmin;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

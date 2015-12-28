@@ -9,14 +9,14 @@
  */
 package pl.ppwozniak.hipchat.api2.models.users;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 import pl.ppwozniak.hipchat.api2.models.users.sub.Room;
-
-import java.util.Arrays;
 
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class GetAutoJoinRoomsModel extends AbstractUserModel {
 
     @JsonProperty("items")
@@ -41,15 +41,5 @@ public class GetAutoJoinRoomsModel extends AbstractUserModel {
 
     public int getMaxResults() {
         return maxResults;
-    }
-
-    @Override
-    public String toString() {
-        return "GetAutoJoinRoomsModel{" +
-                "rooms=" + Arrays.toString(rooms) +
-                ", startIndex=" + startIndex +
-                ", maxResults=" + maxResults +
-                ",links=" + getLinks() +
-                '}';
     }
 }

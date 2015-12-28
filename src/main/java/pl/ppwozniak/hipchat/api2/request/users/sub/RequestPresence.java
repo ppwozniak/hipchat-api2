@@ -9,6 +9,7 @@
  */
 package pl.ppwozniak.hipchat.api2.request.users.sub;
 
+import lombok.ToString;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 /**
  * @author wp
  */
+@ToString
 public class RequestPresence implements Serializable {
 
     @JsonProperty("status")
@@ -35,13 +37,5 @@ public class RequestPresence implements Serializable {
 
     public String getShow() {
         return show;
-    }
-
-    @Override
-    public String toString() {
-        return "RequestPresence{" +
-                "status='" + status + '\'' +
-                ", show='" + show + '\'' +
-                '}';
     }
 }

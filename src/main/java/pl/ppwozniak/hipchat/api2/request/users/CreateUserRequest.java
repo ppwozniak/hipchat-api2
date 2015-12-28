@@ -12,6 +12,7 @@ package pl.ppwozniak.hipchat.api2.request.users;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.request.HttpRequest;
 import com.mashape.unirest.request.HttpRequestWithBody;
+import lombok.ToString;
 import pl.ppwozniak.hipchat.api2.common.AbstractRequest;
 import pl.ppwozniak.hipchat.api2.common.ApiData;
 import pl.ppwozniak.hipchat.api2.common.ClientJsonMapper;
@@ -21,6 +22,7 @@ import pl.ppwozniak.hipchat.api2.request.users.params.CreateUserRequestParams;
 /**
  * @author wp
  */
+@ToString(callSuper = true)
 public class CreateUserRequest extends AbstractRequest {
 
     private static final String REQUEST_URL = "user";
@@ -38,9 +40,8 @@ public class CreateUserRequest extends AbstractRequest {
                 .header("Content-Type", "application/json")
                 .queryString(ApiData.TOKEN_PARAM_NAME, token);
 
-        CreateUserRequestBody body = new CreateUserRequestBody(params.getName(), params.getTitle(),
-                params.getMentionName(), params.isGroupAdmin(), params.getTimezone(), params.getPassword(),
-                params.getEmail());
+        CreateUserRequestBody body = new CreateUserRequestBody(params.getName(), params.getEmail(), params.getTitle(),
+                params.getMentionName(), params.isGroupAdmin(), params.getTimezone(), params.getPassword());
         request.body(body);
 
         setUrl(request.getUrl());
@@ -49,12 +50,5 @@ public class CreateUserRequest extends AbstractRequest {
 
     public CreateUserRequestParams getParams() {
         return params;
-    }
-
-    @Override
-    public String toString() {
-        return "CreateUserRequest{" +
-                "params=" + params +
-                '}';
     }
 }
