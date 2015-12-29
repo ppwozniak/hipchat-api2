@@ -3,15 +3,18 @@
 Java Client library for HipChat API v2  
 
 
-### HipChat API version 2 methods: 
- 
-Capabilites API 
+
+#### HipChat API version 2 methods: 
+
+Capabilites API  
 - Get capabilites  
 - Get addon capabilites schema  
- 
+
+
 Emoticons API  
 - Get emoticon  
 - Get all emoticons  
+
 
 Groups API  
 - View group  
@@ -20,11 +23,13 @@ Groups API
 - Delete group avatar  
 - Group statistics  
 
+
 Imports API  
 - Import privatechat file  
 - Import privatechat history  
 - Import room file  
 - Import room history  
+
 
 Integrations API  
 - Get integration installable data  
@@ -36,13 +41,16 @@ Integrations API
 - User in room addon ui update BETA  
 - User addon ui update BETA  
 
+
 Invites API  
 - Invite user to group  
+
 
 OAuth Sessions API  
 - Get session  
 - Delete session  
 - Generate token  
+
 
 Rooms API  
 - Get room  
@@ -73,19 +81,20 @@ Rooms API
 - Get all webhooks  
 - Create webhook  
 
+
 Users API  
-- Get all users  
-- Create user  
-- View user  
-- Update user  
-- Delete user  
+- **Get all users**  
+- **Create user**  
+- **View user**  
+- **Update user**  
+- **Delete user**  
 - Get privatechat message   
 - View privatechat history  
 - View recent privatechat history  
 - Private message user  
-- Get photo  
+- **Get photo**  
 - Update photo  
 - Delete photo  
-- Get auto join rooms  
+- **Get auto join rooms**  
 - Share file with user  
 - Share link with user  
