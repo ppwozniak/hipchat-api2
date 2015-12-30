@@ -93,7 +93,7 @@ Users API
 - View recent privatechat history  
 - Private message user  
 - **Get photo**  
-- Update photo  
+- **Update photo**  
 - **Delete photo**  
 - **Get auto join rooms**  
 - Share file with user  

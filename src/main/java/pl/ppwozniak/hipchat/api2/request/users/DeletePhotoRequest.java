@@ -18,7 +18,7 @@ import pl.ppwozniak.hipchat.api2.common.ApiData;
 /**
  * @author wp
  */
-@ToString
+@ToString(callSuper = true)
 public class DeletePhotoRequest extends AbstractRequest {
 
     private static final String REQUEST_URL_PART1 = "user/";

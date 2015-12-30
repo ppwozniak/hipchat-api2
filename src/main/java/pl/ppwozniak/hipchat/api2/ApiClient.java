@@ -176,4 +176,30 @@ public class ApiClient implements Serializable {
                     new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
         }
     }
+
+    private ApiResponse<UpdatePhotoRequest, UpdatePhotoModel> updatePhoto(UpdatePhotoRequest request)
+            throws IOException, UnirestException {
+        HttpResponse<JsonNode> response = request.getRequest(token).asJson();
+
+        System.out.println("STATUS: " + response.getStatus());
+        System.out.println(response.getRawBody().toString());
+        if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
+            return new ApiResponse<>(request, response.getStatus(), new UpdatePhotoModel("Photo updated"));
+        } else {
+            return new ApiResponse<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
+        }
+    }
+
+    public ApiResponse<UpdatePhotoRequest, UpdatePhotoModel> updatePhoto(String idOrEmail, String filename)
+            throws IOException, UnirestException {
+        UpdatePhotoRequest request = new UpdatePhotoRequest(idOrEmail, filename);
+        return updatePhoto(request);
+    }
+
+    public ApiResponse<UpdatePhotoRequest, UpdatePhotoModel> updatePhoto(String idOrEmail, byte[] photo) throws
+            IOException, UnirestException {
+        UpdatePhotoRequest request = new UpdatePhotoRequest(idOrEmail, photo);
+        return updatePhoto(request);
+    }
 }
