@@ -163,4 +163,17 @@ public class ApiClient implements Serializable {
                     new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
         }
     }
+
+    public ApiResponse<DeletePhotoRequest, DeletePhotoModel> deletePhoto(String idOrEmail)
+            throws IOException, UnirestException {
+        DeletePhotoRequest request = new DeletePhotoRequest(idOrEmail);
+        HttpResponse<JsonNode> response = request.getRequest(token).asJson();
+
+        if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
+            return new ApiResponse<>(request, response.getStatus(), new DeletePhotoModel("Photo deleted"));
+        } else {
+            return new ApiResponse<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
+        }
+    }
 }

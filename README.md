@@ -94,7 +94,7 @@ Users API
 - Private message user  
 - **Get photo**  
 - Update photo  
-- Delete photo  
+- **Delete photo**  
 - **Get auto join rooms**  
 - Share file with user  
 - Share link with user  
