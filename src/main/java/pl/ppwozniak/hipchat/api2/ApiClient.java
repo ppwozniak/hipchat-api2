@@ -181,8 +181,6 @@ public class ApiClient implements Serializable {
             throws IOException, UnirestException {
         HttpResponse<JsonNode> response = request.getRequest(token).asJson();
 
-        System.out.println("STATUS: " + response.getStatus());
-        System.out.println(response.getRawBody().toString());
         if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
             return new ApiResponse<>(request, response.getStatus(), new UpdatePhotoModel("Photo updated"));
         } else {
@@ -201,5 +199,31 @@ public class ApiClient implements Serializable {
             IOException, UnirestException {
         UpdatePhotoRequest request = new UpdatePhotoRequest(idOrEmail, photo);
         return updatePhoto(request);
+    }
+
+    public ApiResponse<ShareLinkWithUserRequest, ShareLinkWithUserModel> shareLinkWithUser(ShareLinkWithUserRequest request)
+            throws IOException, UnirestException {
+        HttpResponse<JsonNode> response = request.getRequest(token).asJson();
+
+        if (response.getStatus() == HttpStatus.SC_NO_CONTENT) {
+            return new ApiResponse<>(request, response.getStatus(), new ShareLinkWithUserModel("Link shared"));
+        } else {
+            return new ApiResponse<>(request, response.getStatus(),
+                    new ObjectMapper().readValue(response.getRawBody(), ErrorModel.class));
+        }
+    }
+
+    public ApiResponse<ShareLinkWithUserRequest, ShareLinkWithUserModel> shareLinkWithUser(String idOrName,
+                                                                                           String message, String link)
+            throws IOException, UnirestException {
+        ShareLinkWithUserRequest request = new ShareLinkWithUserRequest(idOrName, message, link);
+        return shareLinkWithUser(request);
+    }
+
+    public ApiResponse<ShareLinkWithUserRequest, ShareLinkWithUserModel> shareLinkWithUser(String idOrName,
+                                                                                           String link)
+            throws IOException, UnirestException {
+        ShareLinkWithUserRequest request = new ShareLinkWithUserRequest(idOrName, link);
+        return shareLinkWithUser(request);
     }
 }

@@ -97,4 +97,4 @@ Users API
 - **Delete photo**  
 - **Get auto join rooms**  
 - Share file with user  
-- Share link with user  
+- **Share link with user**  
