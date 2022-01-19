@@ -9,8 +9,8 @@
  */
 package pl.ppwozniak.hipchat.api2.request.users.sub;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.ToString;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 

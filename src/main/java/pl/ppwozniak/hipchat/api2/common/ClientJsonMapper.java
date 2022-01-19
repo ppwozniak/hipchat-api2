@@ -18,7 +18,7 @@ import java.io.IOException;
  */
 public class ClientJsonMapper implements ObjectMapper {
 
-    org.codehaus.jackson.map.ObjectMapper objectMapper = new org.codehaus.jackson.map.ObjectMapper();
+    com.fasterxml.jackson.databind.ObjectMapper objectMapper = new com.fasterxml.jackson.databind.ObjectMapper();
 
     @Override
     public <T> T readValue(String value, Class<T> valueType) {

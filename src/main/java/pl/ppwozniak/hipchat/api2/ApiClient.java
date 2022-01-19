@@ -9,11 +9,11 @@
  */
 package pl.ppwozniak.hipchat.api2;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.HttpStatus;
-import org.codehaus.jackson.map.ObjectMapper;
 import pl.ppwozniak.hipchat.api2.common.ApiResponse;
 import pl.ppwozniak.hipchat.api2.models.ErrorModel;
 import pl.ppwozniak.hipchat.api2.models.users.*;
